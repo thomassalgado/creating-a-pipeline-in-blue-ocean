@@ -8,13 +8,17 @@ pipeline {
             docker {
               image 'maven:3-alpine'
             }
-
           }
           steps {
             sh 'mvn --version'
           }
         }
         stage('Back2') {
+          agent {
+            docker {
+              image 'maven:3-alpine'
+            }
+          }
           steps {
             sh 'echo Ola'
           }
