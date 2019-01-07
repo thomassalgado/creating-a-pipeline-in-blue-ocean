@@ -11,6 +11,9 @@ pipeline {
           }
           steps {
             sh 'mvn --version'
+            docker.image('python:2.7').withRun('-u root --entrypoint /bin/bash') {
+              sh 'pip install version'
+            }
           }
         }
         stage('Back2') {
