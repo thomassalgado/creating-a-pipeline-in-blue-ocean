@@ -12,7 +12,6 @@ pipeline {
           steps {
             sh 'mvn --version'
             sh 'docker run --name some-mongo -d mongo:tag'
-            }
           }
         }
         stage('Back2') {
