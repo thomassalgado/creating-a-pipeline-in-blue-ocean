@@ -2,12 +2,7 @@ pipeline {
   agent none
   stages {
     stage('Back-end') {
-      agent {
-        docker {
-          image 'maven:3-alpine'
-        }
-
-      }
+      agent none
       steps {
         sh 'docker run --name some-mongo -d mongo:tag'
       }
