@@ -2,12 +2,6 @@ pipeline {
   agent none
   stages {
     stage('Back-end') {
-      stage('Setup') {
-          agent none
-          steps {
-            sh 'docker run --name some-mongo -d mongo:tag'
-          }
-        }
       parallel {
         stage('Back-end') {
           agent {
