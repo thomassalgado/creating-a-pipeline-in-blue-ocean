@@ -2,28 +2,14 @@ pipeline {
   agent none
   stages {
     stage('Back-end') {
-      parallel {
-        stage('Back-end') {
-          agent {
-            docker {
-              image 'maven:3-alpine'
-            }
-          }
-          steps {
-            sh 'mvn --version'
-            sh 'docker run --name some-mongo -d mongo:tag'
-          }
+      agent {
+        docker {
+          image 'maven:3-alpine'
         }
-        stage('Back2') {
-          agent {
-            docker {
-              image 'maven:3-alpine'
-            }
-          }
-          steps {
-            sh 'echo Ola'
-          }
-        }
+
+      }
+      steps {
+        sh 'docker run --name some-mongo -d mongo:tag'
       }
     }
     stage('Front-end') {
@@ -31,6 +17,7 @@ pipeline {
         docker {
           image 'node:7-alpine'
         }
+
       }
       steps {
         sh 'node --version'
