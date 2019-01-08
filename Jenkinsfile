@@ -9,6 +9,6 @@ node {
         sh 'echo done'
     }    
     docker.image('frnkenstien/corenlp').withRun('-p 9000:9000 --name coreNLP --rm -i -t') {
-    
+        sh 'echo done 2'
     }
 }
